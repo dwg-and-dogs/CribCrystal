@@ -25,14 +25,22 @@ ViridianGymBlueScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_EARTHBADGE
-	writetext LeaderBlueAfterText
+.FightDone:
+	checkevent EVENT_GOT_TM_25_THUNDER
+	iftrue .SpeechAfterTM
+	loadmem wLevelCap, 78
+	writetext LeaderBlueEpilogueText
+	verbosegiveitem TM_THUNDER
+	iffalse .NoRoomForThunder
+	setevent EVENT_GOT_TM_25_THUNDER
+	writetext BlueTMThunderText
 	waitbutton
 	closetext
 	end
-
-.FightDone:
-	writetext LeaderBlueEpilogueText
+.SpeechAfterTM:
+	writetext LeaderBlueAfterText
 	waitbutton
+.NoRoomForThunder:
 	closetext
 	end
 
@@ -110,6 +118,22 @@ LeaderBlueWinText:
 Text_ReceivedEarthBadge:
 	text "<PLAYER> received"
 	line "EARTHBADGE."
+	done
+
+
+BlueTMThunderText:
+	text "TM25 contains"
+	line "THUNDER."
+
+	para "It does high"
+	line "damage and"
+
+	para "may also"
+	line "paralyze."
+
+	para "Maybe you can"
+	line "use it better"
+	cont "than me."
 	done
 
 LeaderBlueAfterText:

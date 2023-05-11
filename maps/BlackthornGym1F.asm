@@ -41,6 +41,7 @@ BlackthornGymClairScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CLAIR
+	loadmem wLevelCap, 48
 	opentext
 	writetext ClairText_GoToDragonsDen
 	waitbutton
@@ -70,6 +71,7 @@ BlackthornGymClairScript:
 	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext BlackthornGymText_ReceivedTM24
+	loadmem wLevelCap, 48
 	playsound SFX_ITEM
 	waitsfx
 	itemnotify

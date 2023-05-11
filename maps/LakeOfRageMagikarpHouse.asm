@@ -93,8 +93,8 @@ MagikarpLengthRaterText_LakeOfRageHistory:
 	text "LAKE OF RAGE is"
 	line "actually a crater"
 
-	para "made by rampaging"
-	line "GYARADOS."
+	para "made by splashing"
+	line "MAGIKARP."
 
 	para "The crater filled"
 	line "up with rainwater"

@@ -95,16 +95,16 @@ VictoryRoadRivalNext:
 	end
 
 VictoryRoadTMEarthquake:
-	itemball TM_EARTHQUAKE
+	itemball TM_STEEL_WING
 
 VictoryRoadMaxRevive:
-	itemball MAX_REVIVE
+	itemball TM_BLIZZARD
 
 VictoryRoadFullRestore:
 	itemball FULL_RESTORE
 
 VictoryRoadFullHeal:
-	itemball FULL_HEAL
+	itemball TM_FIRE_BLAST
 
 VictoryRoadHPUp:
 	itemball HP_UP

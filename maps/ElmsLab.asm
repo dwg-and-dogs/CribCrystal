@@ -161,8 +161,8 @@ CyndaquilPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic CYNDAQUIL
-	cry CYNDAQUIL
+	pokepic SLUGMA
+	cry SLUGMA
 	waitbutton
 	closepokepic
 	opentext
@@ -174,12 +174,12 @@ CyndaquilPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, CYNDAQUIL
+	getmonname STRING_BUFFER_3, SLUGMA
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CYNDAQUIL, 5, BERRY
+	givepoke SLUGMA, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -191,8 +191,8 @@ TotodilePokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic TOTODILE
-	cry TOTODILE
+	pokepic MARILL
+	cry MARILL
 	waitbutton
 	closepokepic
 	opentext
@@ -204,12 +204,12 @@ TotodilePokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, TOTODILE
+	getmonname STRING_BUFFER_3, MARILL
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TOTODILE, 5, BERRY
+	givepoke MARILL, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -219,8 +219,8 @@ ChikoritaPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic CHIKORITA
-	cry CHIKORITA
+	pokepic SUNKERN
+	cry SUNKERN
 	waitbutton
 	closepokepic
 	opentext
@@ -232,12 +232,12 @@ ChikoritaPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, CHIKORITA
+	getmonname STRING_BUFFER_3, SUNKERN
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHIKORITA, 5, BERRY
+	givepoke SUNKERN, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -460,6 +460,7 @@ AideScript_WalkPotion1:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
+	scall AideScript_GivePocketPC
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
 	end
 
@@ -467,6 +468,7 @@ AideScript_WalkPotion2:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
+	scall AideScript_GivePocketPC
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
 	end
 
@@ -474,8 +476,18 @@ AideScript_GivePotion:
 	opentext
 	writetext AideText_GiveYouPotion
 	promptbutton
-	verbosegiveitem POTION
+	verbosegiveitem EXP_SHARE
 	writetext AideText_AlwaysBusy
+	waitbutton
+	closetext
+	end
+
+AideScript_GivePocketPC:
+	opentext
+	writetext AideText_GetPocketPCText
+	promptbutton
+	giveitem POCKET_PC
+	writetext AideText_PocketPCInfoText
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_NOOP
@@ -858,19 +870,19 @@ LabWhereGoingText:
 
 TakeCyndaquilText:
 	text "ELM: You'll take"
-	line "CYNDAQUIL, the"
+	line "SLUGMA, the"
 	cont "fire #MON?"
 	done
 
 TakeTotodileText:
 	text "ELM: Do you want"
-	line "TOTODILE, the"
+	line "MARILL, the"
 	cont "water #MON?"
 	done
 
 TakeChikoritaText:
 	text "ELM: So, you like"
-	line "CHIKORITA, the"
+	line "SUNKERN, the"
 	cont "grass #MON?"
 	done
 
@@ -1207,6 +1219,10 @@ ElmGiveTicketText2:
 
 	para "Give my regards to"
 	line "PROF.OAK in KANTO!"
+
+	para "And remember to"
+	line "pick up the bike"
+	cont "if you haven't!"
 	done
 
 ElmsLabMonEggText: ; unreferenced
@@ -1366,6 +1382,24 @@ ElmsLabPCText:
 
 	para "…It says on the"
 	line "screen…"
+	done
+
+AideText_GetPocketPCText:
+	text "Oh, I have this"
+	line "for you too."
+
+	para "It's a Pocket PC!"
+	line "It needs a very"
+	cont "strong signal."
+	
+	para "So it might not"
+	line "work inside of"
+	cont "buildings."
+	done
+	
+AideText_PocketPCInfoText:
+	text "Use this to manage"
+	line "your party."
 	done
 
 ElmsLab_MapEvents:

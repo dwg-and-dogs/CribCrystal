@@ -22,9 +22,6 @@ SeafoamGymBlaineScript:
 	winlosstext BlaineWinLossText, 0
 	loadtrainer BLAINE, BLAINE1
 	startbattle
-	iftrue .ReturnAfterBattle
-	appear SEAFOAMGYM_GYM_GUIDE
-.ReturnAfterBattle:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLAINE
 	opentext
@@ -32,16 +29,26 @@ SeafoamGymBlaineScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_VOLCANOBADGE
-	writetext BlaineAfterBattleText
-	waitbutton
-	closetext
-	end
-
 .FightDone:
+	checkevent EVENT_GOT_TM_38_FIRE_BLAST
+	iftrue .SpeechAfterTM
+	loadmem wLevelCap, 71
 	writetext BlaineFightDoneText
+	promptbutton
+	verbosegiveitem TM_FIRE_BLAST
+	iffalse .NoRoomForFireBlast
+	setevent EVENT_GOT_TM_38_FIRE_BLAST
+	writetext BlaineTMFireBlastText
 	waitbutton
 	closetext
 	end
+	
+.SpeechAfterTM
+	writetext BlaineTMFireBlastText
+	waitbutton
+.NoRoomForFireBlast
+	closetext
+	done
 
 SeafoamGymGuideScript:
 	faceplayer
@@ -123,25 +130,36 @@ BlaineFightDoneText:
 	line "Just you watch!"
 	done
 
+BlaineTMFireBlastText:
+	text "TM38 contains"
+	line "FIRE BLAST."
+
+	para "Teach it to"
+	line "fire types!"
+
+	para "CHARMELEON"
+	line "or PONYTA"
+	cont "would be good"
+	cont "bets."
+	
+	para "It is the"
+	line "ultimate fire"
+	cont "type move!"
+	
+	para "Don't waste"
+	line "it on water"
+	cont "types!"
+	done
+
 SeafoamGymGuideWinText:
-	text "Yo!"
+	text "A #MON GYM can"
+	line "be anywhere as"
 
-	para "… Huh? It's over"
-	line "already?"
+	para "long as the GYM"
+	line "LEADER is there."
 
-	para "Sorry, sorry!"
-
-	para "CINNABAR GYM was"
-	line "gone, so I didn't"
-
-	para "know where to find"
-	line "you."
-
-	para "But, hey, you're"
-	line "plenty strong even"
-
-	para "without my advice."
-	line "I knew you'd win!"
+	para "There's no need"
+	line "for a building."
 	done
 
 SeafoamGymGuideWinText2:
@@ -167,4 +185,4 @@ SeafoamGym_MapEvents:
 
 	def_object_events
 	object_event  5,  2, SPRITE_BLAINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SeafoamGymBlaineScript, -1
-	object_event  6,  5, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymGuideScript, EVENT_SEAFOAM_GYM_GYM_GUIDE
+	object_event  6,  5, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymGuideScript, -1

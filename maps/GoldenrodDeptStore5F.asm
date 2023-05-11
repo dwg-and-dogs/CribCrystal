@@ -14,6 +14,12 @@ GoldenrodDeptStore5F_MapScripts:
 
 GoldenrodDeptStore5FCheckIfSundayCallback:
 	readvar VAR_WEEKDAY
+	ifequal MONDAY, .yes	
+	ifequal TUESDAY, .yes
+	ifequal WEDNESDAY, .yes
+	ifequal THURSDAY, .yes
+	ifequal FRIDAY, .yes
+	ifequal SATURDAY, .yes
 	ifequal SUNDAY, .yes
 	disappear GOLDENRODDEPTSTORE5F_RECEPTIONIST
 	endcallback
@@ -59,8 +65,8 @@ GoldenrodDeptStore5FClerkScript:
 GoldenrodDeptStore5FReceptionistScript:
 	faceplayer
 	opentext
-	readvar VAR_WEEKDAY
-	ifnotequal SUNDAY, .EventIsOver
+;	readvar VAR_WEEKDAY
+;	ifnotequal SUNDAY, .EventIsOver
 	checkflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	iftrue .EventIsOver
 	special GetFirstPokemonHappiness
@@ -73,7 +79,7 @@ GoldenrodDeptStore5FReceptionistScript:
 .VeryHappy:
 	writetext GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText
 	promptbutton
-	verbosegiveitem TM_RETURN
+	verbosegiveitem TM_PSYCH_UP
 	iffalse .Done
 	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	closetext
@@ -144,8 +150,8 @@ GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText:
 	done
 
 GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText:
-	text "It's very attached"
-	line "to you."
+	text "You're very in"
+	line "sync."
 
 	para "This move should"
 	line "be perfect for a"

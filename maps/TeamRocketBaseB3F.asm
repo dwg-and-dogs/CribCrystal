@@ -1,5 +1,5 @@
 	object_const_def
-	const TEAMROCKETBASEB3F_LANCE
+	const TEAMROCKETBASEB3F_KAREN
 	const TEAMROCKETBASEB3F_ROCKET1
 	const TEAMROCKETBASEB3F_MOLTRES
 	const TEAMROCKETBASEB3F_ROCKET_GIRL
@@ -51,13 +51,13 @@ LanceGetPasswordScript:
 	pause 5
 	turnobject TEAMROCKETBASEB3F_MOLTRES, RIGHT
 	pause 20
-	applymovement TEAMROCKETBASEB3F_LANCE, RocketBaseLanceApproachesPlayerMovement
+	applymovement TEAMROCKETBASEB3F_KAREN, RocketBaseLanceApproachesPlayerMovement
 	opentext
 	writetext LanceGetPasswordText
 	waitbutton
 	closetext
-	applymovement TEAMROCKETBASEB3F_LANCE, RocketBaseLanceLeavesMovement
-	disappear TEAMROCKETBASEB3F_LANCE
+	applymovement TEAMROCKETBASEB3F_KAREN, RocketBaseLanceLeavesMovement
+	disappear TEAMROCKETBASEB3F_KAREN
 	setscene SCENE_TEAMROCKETBASEB3F_RIVAL_ENCOUNTER
 	end
 
@@ -317,7 +317,7 @@ RocketBaseRivalShovesPlayerMovement:
 	step_end
 
 LanceGetPasswordText:
-	text "LANCE: It takes"
+	text "KAREN: It takes"
 	line "two passwords to"
 
 	para "get into the"
@@ -590,7 +590,7 @@ TeamRocketBaseB3F_MapEvents:
 	bg_event  7, 13, BGEVENT_READ, TeamRocketBaseB3FOathScript
 
 	def_object_events
-	object_event 25, 14, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LanceGetPasswordScript, EVENT_TEAM_ROCKET_BASE_B3F_LANCE_PASSWORDS
+	object_event 25, 14, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LanceGetPasswordScript, EVENT_TEAM_ROCKET_BASE_B3F_LANCE_PASSWORDS
 	object_event  8,  3, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B3F_EXECUTIVE
 	object_event  7,  2, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RocketBaseMurkrow, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 21,  7, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, SlowpokeTailGrunt, EVENT_TEAM_ROCKET_BASE_POPULATION

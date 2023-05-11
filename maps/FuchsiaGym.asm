@@ -51,6 +51,7 @@ FuchsiaGymJanineScript:
 	verbosegiveitem TM_TOXIC
 	iffalse .AfterTM
 	setevent EVENT_GOT_TM06_TOXIC
+	loadmem wLevelCap, 64
 .AfterTM:
 	writetext JanineText_ApplyMyself
 	waitbutton
@@ -365,11 +366,8 @@ FuchsiaGymGuideText:
 	line "good look around"
 
 	para "you. The trainers"
-	line "all look like the"
-	cont "LEADER, JANINE."
-
-	para "Which of them is"
-	line "the real JANINE?"
+	line "all dressed up"
+	cont "in costumes!"
 	done
 
 FuchsiaGymGuideWinText:

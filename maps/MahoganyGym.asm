@@ -35,11 +35,14 @@ MahoganyGymPryceScript:
 .FightDone:
 	checkevent EVENT_GOT_TM16_ICY_WIND
 	iftrue PryceScript_Defeat
+	loadmem wLevelCap, 36
 	setevent EVENT_BEAT_SKIER_ROXANNE
 	setevent EVENT_BEAT_SKIER_CLARISSA
 	setevent EVENT_BEAT_BOARDER_RONALD
 	setevent EVENT_BEAT_BOARDER_BRAD
 	setevent EVENT_BEAT_BOARDER_DOUGLAS
+	setevent EVENT_JASMINE_RETURNED_TO_GYM
+	clearevent EVENT_OLIVINE_GYM_JASMINE
 	writetext PryceText_GlacierBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_ICY_WIND

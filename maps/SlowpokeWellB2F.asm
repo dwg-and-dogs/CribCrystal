@@ -28,7 +28,7 @@ SlowpokeWellB2FGymGuideScript:
 	end
 
 SlowpokeWellB2FTMRainDance:
-	itemball TM_RAIN_DANCE
+	itemball TM_ICE_PUNCH
 
 SlowpokeWellB2FGymGuideText:
 	text "I'm waiting to see"

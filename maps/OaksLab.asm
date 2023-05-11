@@ -41,6 +41,7 @@ Oak:
 	writetext OakOpenMtSilverText
 	promptbutton
 	setevent EVENT_OPENED_MT_SILVER
+	loadmem wLevelCap, 78
 	sjump .CheckPokedex
 
 .Complain:

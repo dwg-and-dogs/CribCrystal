@@ -1561,6 +1561,9 @@ _OakText4::
 	para "Some people play"
 	line "with #MON, some"
 	cont "battle with them."
+	
+	para "Some never ever"
+	line "evolve #MON!"
 	prompt
 
 _OakText5::

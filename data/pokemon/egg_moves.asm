@@ -429,7 +429,7 @@ AerodactylEggMoves:
 	db FORESIGHT
 	db -1 ; end
 
-SnorlaxEggMoves:
+MunchlaxEggMoves:
 	db LICK
 	db -1 ; end
 

@@ -1616,7 +1616,69 @@ RodNothingText:
 UnusedNothingHereText: ; unreferenced
 	text_far _UnusedNothingHereText
 	text_end
+;
+PocketPCFunction:
+	call .TryPC ;added this
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+	
+.TryPC
+	call .CheckEnvironment
+	jr c, .CannotUsePC
+	ld a, [wPlayerState]
+	jr z, .UsePC
 
+.UsePC
+	jr c, .CannotUsePC ;added
+	call .LoadPocketPC
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+	
+.LoadPocketPC:
+	ld a, [wPlayerState]
+	ld hl, Script_LoadPocketPC
+	ld de, Script_LoadPocketPC_Register
+	call .CheckIfRegistered
+	call QueueScript
+	ld a, TRUE
+	ret
+	
+.CheckIfRegistered:
+	ld a, [wUsingItemWithSelect]
+	and a
+	ret z
+	ld h, d
+	ld l, e
+	ret
+
+.CheckEnvironment: ;copied from bike
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jr z, .ok
+	cp CAVE ;does this mean can do in cave?
+	jr z, .ok
+	cp GATE
+	jr z, .ok
+	jr .nope
+
+.ok
+	call GetPlayerTile
+	and $f ; lo nybble only
+	jr nz, .nope ; not FLOOR_TILE
+	xor a
+	ret
+
+.CannotUsePC:
+	ld a, $0
+	ret
+
+.nope
+	scf
+	ret
+
+;
 BikeFunction:
 	call .TryBike
 	and $7f
@@ -1702,6 +1764,18 @@ BikeFunction:
 .nope
 	scf
 	ret
+
+Script_LoadPocketPC:
+	reloadmappart
+	special UpdateTimePals
+	special PokemonCenterPC
+	reloadmappart
+	end
+
+Script_LoadPocketPC_Register:
+	special PokemonCenterPC
+	reloadmappart
+	end
 
 Script_GetOnBike:
 	reloadmappart

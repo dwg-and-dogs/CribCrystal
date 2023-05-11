@@ -1,6 +1,6 @@
 	db WOBBUFFET ; 202
 
-	db 190,  33,  58,  33,  33,  58
+	db  95,  23,  48,  23,  23,  48
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

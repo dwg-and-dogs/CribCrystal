@@ -62,6 +62,7 @@ WillScript_Battle:
 	reloadmappart
 	closetext
 	setevent EVENT_WILLS_ROOM_EXIT_OPEN
+	loadmem wLevelCap, 51
 	waitsfx
 	end
 

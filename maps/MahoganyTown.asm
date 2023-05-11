@@ -186,8 +186,8 @@ RageCandyBarMerchantSoldOutText:
 
 MahoganyTownGrampsText:
 	text "Are you off to see"
-	line "the GYARADOS ram-"
-	cont "page at the LAKE?"
+	line "the MAGIKARP"
+	cont "splashing?"
 	done
 
 MahoganyTownGrampsText_ClearedRocketHideout:
@@ -212,6 +212,10 @@ MahoganyTownFisherText:
 
 	para "out LAKE OF RAGE"
 	line "right now."
+	
+	para "Or maybe you"
+	line "should check"
+	cont "Cianwood."
 	done
 
 MahoganyTownLassText:

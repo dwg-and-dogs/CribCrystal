@@ -30,6 +30,7 @@ OlivineGymJasmineScript:
 .FightDone:
 	checkevent EVENT_GOT_TM23_IRON_TAIL
 	iftrue .GotIronTail
+	loadmem wLevelCap, 41
 	writetext Jasmine_BadgeSpeech
 	promptbutton
 	verbosegiveitem TM_IRON_TAIL
@@ -193,6 +194,13 @@ OlivineGymGuidePreText:
 	para "A strong trainer"
 	line "has to be compas-"
 	cont "sionate."
+
+	para "You might also"
+	line "try to see if"
+	cont "PRYCE is back"
+	
+	para "at his gym in"
+	line "MAHOGANY town."
 	done
 
 OlivineGym_MapEvents:

@@ -11,7 +11,7 @@
 	const ROUTE32_FISHER4
 	const ROUTE32_POKE_BALL1
 	const ROUTE32_FISHER5
-	const ROUTE32_FRIEDA
+	const ROUTE32_FRIEDA ;double gauntlet to get barb
 	const ROUTE32_POKE_BALL2
 
 Route32_MapScripts:
@@ -34,7 +34,13 @@ Route32Noop3Scene:
 
 Route32FriedaCallback:
 	readvar VAR_WEEKDAY
+	ifequal MONDAY, .FriedaAppears	
+	ifequal TUESDAY, .FriedaAppears
+	ifequal WEDNESDAY, .FriedaAppears
+	ifequal THURSDAY, .FriedaAppears
 	ifequal FRIDAY, .FriedaAppears
+	ifequal SATURDAY, .FriedaAppears
+	ifequal SUNDAY, .FriedaAppears
 	disappear ROUTE32_FRIEDA
 	endcallback
 
@@ -454,8 +460,8 @@ FriedaScript:
 	opentext
 	checkevent EVENT_GOT_POISON_BARB_FROM_FRIEDA
 	iftrue .Friday
-	readvar VAR_WEEKDAY
-	ifnotequal FRIDAY, .NotFriday
+;	readvar VAR_WEEKDAY
+;	ifnotequal FRIDAY, .NotFriday
 	checkevent EVENT_MET_FRIEDA_OF_FRIDAY
 	iftrue .MetFrieda
 	writetext MeetFriedaText
@@ -479,11 +485,11 @@ FriedaScript:
 	closetext
 	end
 
-.NotFriday:
-	writetext FriedaNotFridayText
-	waitbutton
-	closetext
-	end
+;.NotFriday:
+;	writetext FriedaNotFridayText
+;	waitbutton
+;	closetext
+;	end
 
 Route32GreatBall:
 	itemball GREAT_BALL
@@ -856,10 +862,7 @@ Text_RoarOutro:
 	done
 
 MeetFriedaText:
-	text "FRIEDA: Yahoo!"
-	line "It's Friday!"
-
-	para "I'm FRIEDA of"
+	text "I'm FRIEDA of"
 	line "Friday!"
 
 	para "Nice to meet you!"
@@ -944,15 +947,15 @@ Route32_MapEvents:
 	def_object_events
 	object_event  8, 49, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherJustin, -1
 	object_event 12, 56, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherRalph1, -1
-	object_event  6, 48, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherHenry, -1
+	object_event  9, 82, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherHenry, -1
 	object_event 12, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterAlbert, -1
 	object_event  4, 63, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterGordon, -1
 	object_event  3, 45, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperRoland, -1
 	object_event 10, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerLiz1, -1
 	object_event 19,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32CooltrainerMScript, -1
-	object_event 11, 82, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPeter, -1
+	object_event 12, 82, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPeter, -1
 	object_event  7, 70, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeTailSalesmanScript, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  6, 53, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32GreatBall, EVENT_ROUTE_32_GREAT_BALL
 	object_event 15, 13, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32RoarTMGuyScript, -1
-	object_event 12, 67, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FriedaScript, EVENT_ROUTE_32_FRIEDA_OF_FRIDAY
+	object_event 12, 85, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FriedaScript, EVENT_ROUTE_32_FRIEDA_OF_FRIDAY
 	object_event  3, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32Repel, EVENT_ROUTE_32_REPEL

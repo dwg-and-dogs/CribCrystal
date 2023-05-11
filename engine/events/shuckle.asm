@@ -6,7 +6,7 @@ GiveShuckle:
 	ld [wMonType], a
 
 ; Level 15 Shuckle.
-	ld a, SHUCKLE
+	ld a, PORYGON
 	ld [wCurPartySpecies], a
 	ld a, 15
 	ld [wCurPartyLevel], a
@@ -26,7 +26,7 @@ GiveShuckle:
 	push bc
 	ld hl, wPartyMon1Item
 	call AddNTimes
-	ld [hl], BERRY
+	ld [hl], SCOPE_LENS
 	pop bc
 	pop af
 
@@ -69,14 +69,14 @@ SpecialShuckleOT:
 	db "MANIA@"
 
 SpecialShuckleNickname:
-	db "SHUCKIE@"
+	db "DUCKIE@"
 
 ReturnShuckie:
 	farcall SelectMonFromParty
 	jr c, .refused
 
 	ld a, [wCurPartySpecies]
-	cp SHUCKLE
+	cp PORYGON
 	jr nz, .DontReturn
 
 	ld a, [wCurPartyMon]

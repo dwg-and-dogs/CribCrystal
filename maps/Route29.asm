@@ -24,16 +24,17 @@ Route29Noop2Scene:
 
 Route29TuscanyCallback:
 	checkflag ENGINE_ZEPHYRBADGE
-	iftrue .DoesTuscanyAppear
-
-.TuscanyDisappears:
-	disappear ROUTE29_TUSCANY
+	iffalse .DoesTuscanyDisappear
 	endcallback
 
-.DoesTuscanyAppear:
-	readvar VAR_WEEKDAY
-	ifnotequal TUESDAY, .TuscanyDisappears
-	appear ROUTE29_TUSCANY
+;.TuscanyAppears:
+;	appear ROUTE29_TUSCANY
+;	endcallback
+
+.DoesTuscanyDisappear:
+;	readvar VAR_WEEKDAY
+;	ifnotequal TUESDAY, .TuscanyAppears
+	disappear ROUTE29_TUSCANY
 	endcallback
 
 Route29Tutorial1:
@@ -169,8 +170,8 @@ TuscanyScript:
 	opentext
 	checkevent EVENT_GOT_PINK_BOW_FROM_TUSCANY
 	iftrue TuscanyTuesdayScript
-	readvar VAR_WEEKDAY
-	ifnotequal TUESDAY, TuscanyNotTuesdayScript
+;	readvar VAR_WEEKDAY
+;	ifnotequal TUESDAY, TuscanyNotTuesdayScript
 	checkevent EVENT_MET_TUSCANY_OF_TUESDAY
 	iftrue .MetTuscany
 	writetext MeetTuscanyText
@@ -194,11 +195,11 @@ TuscanyDoneScript:
 	closetext
 	end
 
-TuscanyNotTuesdayScript:
-	writetext TuscanyNotTuesdayText
-	waitbutton
-	closetext
-	end
+;TuscanyNotTuesdayScript:
+;	writetext TuscanyNotTuesdayText
+;	waitbutton
+;	closetext
+;	end
 
 Route29Sign1:
 	jumptext Route29Sign1Text

@@ -279,7 +279,10 @@ MrPokemonsHouse_OakText1:
 	line "would treat your"
 
 	para "#MON with love"
-	line "and care."
+	line "and care,"
+
+	para "even if they"
+	line "are awful."
 
 	para "…Ah!"
 
@@ -328,8 +331,8 @@ MrPokemonsHouse_OakText2:
 
 MrPokemonText_GimmeTheScale:
 	text "Hm? That SCALE!"
-	line "What's that?"
-	cont "A red GYARADOS?"
+	line "What? A gold"
+	cont "MAGIKARP?"
 
 	para "That's rare! "
 	line "I, I want it…"

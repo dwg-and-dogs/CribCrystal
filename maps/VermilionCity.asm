@@ -3,7 +3,7 @@
 	const VERMILIONCITY_GRAMPS
 	const VERMILIONCITY_MACHOP
 	const VERMILIONCITY_SUPER_NERD
-	const VERMILIONCITY_BIG_SNORLAX
+	const VERMILIONCITY_BIG_SNORLAX ;change to a ditto
 	const VERMILIONCITY_POKEFAN_M
 
 VermilionCity_MapScripts:
@@ -40,20 +40,12 @@ VermilionCitySuperNerdScript:
 
 VermilionSnorlax:
 	opentext
-	special SnorlaxAwake
-	iftrue .Awake
-	writetext VermilionCitySnorlaxSleepingText
-	waitbutton
-	closetext
-	end
-
-.Awake:
 	writetext VermilionCityRadioNearSnorlaxText
 	pause 15
-	cry SNORLAX
+	cry MUNCHLAX
 	closetext
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon SNORLAX, 50
+	loadwildmon MUNCHLAX, 50
 	startbattle
 	disappear VERMILIONCITY_BIG_SNORLAX
 	setevent EVENT_FOUGHT_SNORLAX
@@ -163,19 +155,14 @@ VermilionCitySuperNerdText:
 	cont "#MON GYM."
 	done
 
-VermilionCitySnorlaxSleepingText:
-	text "SNORLAX is snoring"
-	line "peacefully…"
-	done
-
 VermilionCityRadioNearSnorlaxText:
 	text "The #GEAR was"
 	line "placed near the"
-	cont "sleeping SNORLAX…"
+	cont "sleeping #MON…"
 
 	para "…"
 
-	para "SNORLAX woke up!"
+	para "MUNCHLAX woke up!"
 	done
 
 VermilionCityBadgeGuyTrainerText:

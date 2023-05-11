@@ -1,5 +1,5 @@
 	object_const_def
-	const HALLOFFAME_LANCE
+	const HALLOFFAME_KAREN
 
 HallOfFame_MapScripts:
 	def_scene_scripts
@@ -16,15 +16,15 @@ HallOfFameNoopScene:
 	end
 
 HallOfFameEnterScript:
-	follow HALLOFFAME_LANCE, PLAYER
-	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
+	follow HALLOFFAME_KAREN, PLAYER
+	applymovement HALLOFFAME_KAREN, HallOfFame_WalkUpWithLance
 	stopfollow
 	turnobject PLAYER, RIGHT
 	opentext
 	writetext HallOfFame_LanceText
 	waitbutton
 	closetext
-	turnobject HALLOFFAME_LANCE, UP
+	turnobject HALLOFFAME_KAREN, UP
 	applymovement PLAYER, HallOfFame_SlowlyApproachMachine
 	setscene SCENE_HALLOFFAME_NOOP
 	pause 15
@@ -63,7 +63,7 @@ HallOfFame_SlowlyApproachMachine:
 	step_end
 
 HallOfFame_LanceText:
-	text "LANCE: It's been a"
+	text "KAREN: It's been a"
 	line "long time since I"
 	cont "last came here."
 
@@ -120,4 +120,4 @@ HallOfFame_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  4, 12, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  4, 12, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

@@ -16,7 +16,13 @@ UnionCaveB2FLaprasCallback:
 	checkflag ENGINE_UNION_CAVE_LAPRAS
 	iftrue .NoAppear
 	readvar VAR_WEEKDAY
+	ifequal MONDAY, .Appear
+	ifequal TUESDAY, .Appear
+	ifequal WEDNESDAY, .Appear
+	ifequal THURSDAY, .Appear
 	ifequal FRIDAY, .Appear
+	ifequal SATURDAY, .Appear
+	ifequal SUNDAY, .Appear
 .NoAppear:
 	disappear UNIONCAVEB2F_LAPRAS
 	endcallback
@@ -27,8 +33,8 @@ UnionCaveB2FLaprasCallback:
 
 UnionCaveLapras:
 	faceplayer
-	cry LAPRAS
-	loadwildmon LAPRAS, 20
+	cry CORSOLA
+	loadwildmon CORSOLA, 20
 	startbattle
 	disappear UNIONCAVEB2F_LAPRAS
 	setflag ENGINE_UNION_CAVE_LAPRAS

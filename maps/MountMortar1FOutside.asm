@@ -8,7 +8,7 @@ MountMortar1FOutside_MapScripts:
 	def_callbacks
 
 MountMortar1FOutsideEther:
-	itemball ETHER
+	itemball TM_ENDURE
 
 MountMortar1FOutsideRevive:
 	itemball REVIVE

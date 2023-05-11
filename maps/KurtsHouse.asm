@@ -72,8 +72,6 @@ Kurt1:
 	iffalse .NoRoomForBall
 	setevent EVENT_KURT_GAVE_YOU_LURE_BALL
 .GotLureBall:
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iftrue .WaitForApricorns
 	checkevent EVENT_GAVE_KURT_RED_APRICORN
 	iftrue .GiveLevelBall
 	checkevent EVENT_GAVE_KURT_BLU_APRICORN
@@ -88,7 +86,7 @@ Kurt1:
 	iftrue .GiveHeavyBall
 	checkevent EVENT_GAVE_KURT_PNK_APRICORN
 	iftrue .GiveLoveBall
-	checkevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
+	checkevent EVENT_TIN_TOWER_1F_WISE_TRIO_2;AFTER SUICUNE
 	iftrue .CanGiveGSBallToKurt
 .NoGSBall:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
@@ -167,11 +165,16 @@ Kurt1:
 
 .GaveKurtApricorns:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	setflag ENGINE_KURT_MAKING_BALLS
-.WaitForApricorns:
-	writetext KurtsHouseKurtItWillTakeADayText
+	writetext KurtsHouseKurtGetStartedText
 	waitbutton
 	closetext
+	end
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playsound SFX_WARP_TO
+	waitsfx
+	pause 35
+	sjump Kurt1
 	end
 
 .Cancel:
@@ -262,13 +265,13 @@ Kurt1:
 .CanGiveGSBallToKurt:
 	checkevent EVENT_GAVE_GS_BALL_TO_KURT
 	iftrue .GaveGSBallToKurt
-	checkitem GS_BALL
+	checkitem EVERSTONE
 	iffalse .NoGSBall
 	writetext KurtsHouseKurtWhatIsThatText
 	waitbutton
 	closetext
 	setevent EVENT_GAVE_GS_BALL_TO_KURT
-	takeitem GS_BALL
+	takeitem EVERSTONE
 	setflag ENGINE_KURT_MAKING_BALLS
 	end
 
@@ -447,6 +450,11 @@ KurtsHouseKurtGoAroundPlayerThenExitHouseMovement:
 	big_step DOWN
 	big_step DOWN
 	step_end
+	
+KurtsHouseKurtGetStartedText:
+	text "Kurt: I:ll get"
+	line "started right now!"
+	done
 
 KurtsHouseKurtMakingBallsMustWaitText:
 	text "Hm? Who are you?"
@@ -526,14 +534,6 @@ KurtsHouseKurtAskYouHaveAnApricornText:
 
 	para "Fine! I'll turn it"
 	line "into a BALL."
-	done
-
-KurtsHouseKurtItWillTakeADayText:
-	text "KURT: It'll take a"
-	line "day to make you a"
-
-	para "BALL. Come back"
-	line "for it later."
 	done
 
 KurtsHouseKurtThatsALetdownText:

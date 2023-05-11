@@ -15,6 +15,12 @@ Route37_MapScripts:
 
 Route37SunnyCallback:
 	readvar VAR_WEEKDAY
+	ifequal MONDAY, .SunnyAppears	
+	ifequal TUESDAY, .SunnyAppears
+	ifequal WEDNESDAY, .SunnyAppears
+	ifequal THURSDAY, .SunnyAppears
+	ifequal FRIDAY, .SunnyAppears
+	ifequal SATURDAY, .SunnyAppears
 	ifequal SUNDAY, .SunnyAppears
 	disappear ROUTE37_SUNNY
 	endcallback
@@ -62,8 +68,8 @@ SunnyScript:
 	checkevent EVENT_GOT_MAGNET_FROM_SUNNY
 	iftrue SunnySundayScript
 	readvar VAR_WEEKDAY
-	ifnotequal SUNDAY, SunnyNotSundayScript
-	checkevent EVENT_MET_SUNNY_OF_SUNDAY
+;	ifnotequal SUNDAY, SunnyNotSundayScript
+;	checkevent EVENT_MET_SUNNY_OF_SUNDAY
 	iftrue .MetSunny
 	writetext MeetSunnyText
 	promptbutton
@@ -176,7 +182,7 @@ MeetSunnyText:
 
 	para "I'm SUNNY of Sun-"
 	line "day, meaning it's"
-	cont "Sunday today!"
+	cont "sunny today!"
 	done
 
 SunnyGivesGiftText1:
@@ -247,9 +253,9 @@ Route37_MapEvents:
 	bg_event  4,  2, BGEVENT_ITEM, Route37HiddenEther
 
 	def_object_events
-	object_event  6, 12, SPRITE_WEIRD_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1
-	object_event  7, 12, SPRITE_WEIRD_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne2, -1
-	object_event  6,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicGreg, -1
+	object_event  6, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1
+	object_event  7, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne2, -1
+	object_event  5,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicGreg, -1
 	object_event 13,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree1, -1
 	object_event 16,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SunnyScript, EVENT_ROUTE_37_SUNNY_OF_SUNDAY
 	object_event 16,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree2, -1

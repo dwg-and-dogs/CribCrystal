@@ -101,8 +101,13 @@ GoldTrophySpriteGFX::          INCBIN "gfx/sprites/gold_trophy.2bpp"
 SilverTrophySpriteGFX::        INCBIN "gfx/sprites/silver_trophy.2bpp"
 KrisSpriteGFX::                INCBIN "gfx/sprites/kris.2bpp"
 KrisBikeSpriteGFX::            INCBIN "gfx/sprites/kris_bike.2bpp"
-KurtOutsideSpriteGFX::         INCBIN "gfx/sprites/kurt_outside.2bpp"
 SuicuneSpriteGFX::             INCBIN "gfx/sprites/suicune.2bpp"
 EnteiSpriteGFX::               INCBIN "gfx/sprites/entei.2bpp"
 RaikouSpriteGFX::              INCBIN "gfx/sprites/raikou.2bpp"
-StandingYoungsterSpriteGFX::   INCBIN "gfx/sprites/standing_youngster.2bpp"
+
+SECTION "Sprites 3", ROMX
+
+MagbySpriteGFX:: INCBIN "gfx/sprites/magby.2bpp"
+ElekidSpriteGFX:: INCBIN "gfx/sprites/elekid.2bpp"
+SmoochumSpriteGFX:: INCBIN "gfx/sprites/jynx_smoochum.2bpp"
+GhostSpriteGFX:: INCBIN "gfx/sprites/ghost.2bpp"

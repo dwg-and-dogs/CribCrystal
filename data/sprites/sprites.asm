@@ -33,7 +33,7 @@ OverworldSprites:
 	overworld_sprite PryceSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite ClairSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite BrockSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
-	overworld_sprite KarenSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BLUE
+	overworld_sprite KarenSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite BrunoSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite MistySpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite LanceSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
@@ -104,9 +104,11 @@ OverworldSprites:
 	overworld_sprite SilverTrophySpriteGFX, 4, STILL_SPRITE, PAL_OW_SILVER
 	overworld_sprite KrisSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite KrisBikeSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
-	overworld_sprite KurtOutsideSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BROWN
 	overworld_sprite SuicuneSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
-	overworld_sprite EnteiSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
-	overworld_sprite RaikouSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
-	overworld_sprite StandingYoungsterSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BLUE
+	overworld_sprite EnteiSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
+	overworld_sprite RaikouSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
+	overworld_sprite MagbySpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite ElekidSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite SmoochumSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
+	overworld_sprite GhostSpriteGFX, 12, WALKING_SPRITE, PAL_OW_SILVER
 	assert_table_length NUM_OVERWORLD_SPRITES

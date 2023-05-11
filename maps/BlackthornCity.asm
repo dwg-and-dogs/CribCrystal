@@ -8,6 +8,7 @@
 	const BLACKTHORNCITY_YOUNGSTER1
 	const BLACKTHORNCITY_SANTOS
 	const BLACKTHORNCITY_COOLTRAINER_F2
+	const BLACKTHORN_FISHING_GURU
 
 BlackthornCity_MapScripts:
 	def_scene_scripts
@@ -22,13 +23,46 @@ BlackthornCityFlypointCallback:
 
 BlackthornCitySantosCallback:
 	readvar VAR_WEEKDAY
+	ifequal MONDAY, .SantosAppears	
+	ifequal TUESDAY, .SantosAppears
+	ifequal WEDNESDAY, .SantosAppears
+	ifequal THURSDAY, .SantosAppears
+	ifequal FRIDAY, .SantosAppears
 	ifequal SATURDAY, .SantosAppears
+	ifequal SUNDAY, .SantosAppears
 	disappear BLACKTHORNCITY_SANTOS
 	endcallback
 
 .SantosAppears:
 	appear BLACKTHORNCITY_SANTOS
 	endcallback
+
+BlackthornFishingGuruScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_SUPER_ROD
+	iftrue .GotBlackthornSuperRod
+	writetext OfferBlackthornSuperRodText
+	yesorno
+	iffalse .Refused
+	writetext GiveBlackthornSuperRodText
+	promptbutton
+	verbosegiveitem SUPER_ROD
+	iffalse .NoRoom
+	setevent EVENT_GOT_SUPER_ROD
+.GotBlackthornSuperRod:
+	writetext GaveBlackthornSuperRodText
+	waitbutton
+	closetext
+	end
+	
+
+.Refused:
+	writetext DontWantBlackthornSuperRodText
+	waitbutton
+.NoRoom:
+	closetext
+	end
 
 BlackthornSuperNerdScript:
 	faceplayer
@@ -90,8 +124,8 @@ SantosScript:
 	opentext
 	checkevent EVENT_GOT_SPELL_TAG_FROM_SANTOS
 	iftrue .Saturday
-	readvar VAR_WEEKDAY
-	ifnotequal SATURDAY, .NotSaturday
+;	readvar VAR_WEEKDAY
+;	ifnotequal SATURDAY, .NotSaturday
 	checkevent EVENT_MET_SANTOS_OF_SATURDAY
 	iftrue .MetSantos
 	writetext MeetSantosText
@@ -115,11 +149,11 @@ SantosScript:
 	closetext
 	end
 
-.NotSaturday:
-	writetext SantosNotSaturdayText
-	waitbutton
-	closetext
-	end
+;.NotSaturday:
+;	writetext SantosNotSaturdayText
+;	waitbutton
+;	closetext
+;	end
 
 BlackthornCitySign:
 	jumptext BlackthornCitySignText
@@ -227,8 +261,6 @@ BlackthornYoungsterText:
 MeetSantosText:
 	text "SANTOS: …"
 
-	para "It's Saturday…"
-
 	para "I'm SANTOS of"
 	line "Saturday…"
 	done
@@ -310,6 +342,47 @@ BlackthornCityTrainerTipsText:
 	cont "problem."
 	done
 
+OfferBlackthornSuperRodText:
+	text "I'm the FISHING"
+	line "GURU's younger"
+	cont "brother."
+
+	para "I can see that you"
+	line "like fishing."
+
+	para "There's no doubt"
+	line "in my mind at all!"
+
+	para "So? I know I'm"
+	line "right."
+	done
+
+GiveBlackthornSuperRodText:
+	text "Yes, yes. Just as"
+	line "I thought!"
+
+	para "Here, fishing fan!"
+	line "Take this--it's a"
+	cont "SUPER ROD."
+	done
+
+GaveBlackthornSuperRodText:
+	text "Try your hand at"
+	line "fishing wherever"
+	cont "there is water."
+
+	para "Remember--you can"
+	line "catch different"
+
+	para "#MON using"
+	line "different RODS."
+	done
+
+DontWantBlackthornSuperRodText:
+	text "Huh? My own eyes"
+	line "deceived me?"
+	done
+
 BlackthornCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -344,3 +417,4 @@ BlackthornCity_MapEvents:
 	object_event 13, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornYoungsterScript, -1
 	object_event 22, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SantosScript, EVENT_BLACKTHORN_CITY_SANTOS_OF_SATURDAY
 	object_event 35, 19, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BlackthornCooltrainerF2Script, -1
+	object_event 22, 12, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornFishingGuruScript, -1

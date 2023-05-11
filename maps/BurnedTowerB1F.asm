@@ -38,19 +38,19 @@ ReleaseTheBeasts:
 	pause 5
 	disappear BURNEDTOWERB1F_RAIKOU2
 	pause 15
-	cry RAIKOU
+	cry ELEKID
 	appear BURNEDTOWERB1F_ENTEI1
 	turnobject PLAYER, UP
 	pause 5
 	disappear BURNEDTOWERB1F_ENTEI2
 	pause 15
-	cry ENTEI
+	cry MAGBY
 	appear BURNEDTOWERB1F_SUICUNE1
 	turnobject PLAYER, UP
 	pause 5
 	disappear BURNEDTOWERB1F_SUICUNE2
 	pause 15
-	cry SUICUNE
+	cry SMOOCHUM
 	pause 15
 	playsound SFX_WARP_FROM
 	turnobject PLAYER, LEFT
@@ -71,7 +71,7 @@ ReleaseTheBeasts:
 	applymovement BURNEDTOWERB1F_SUICUNE1, BurnedTowerSuicuneMovement2
 	turnobject PLAYER, UP
 	pause 20
-	cry SUICUNE
+	cry SMOOCHUM
 	pause 30
 	playsound SFX_WARP_FROM
 	applymovement BURNEDTOWERB1F_SUICUNE1, BurnedTowerSuicuneMovement3
@@ -117,7 +117,7 @@ BurnedTowerB1FEusine:
 	end
 
 BurnedTowerB1FTMEndure:
-	itemball TM_ENDURE
+	itemball TM_FIRE_PUNCH
 
 BurnedTowerB1FBoulder:
 	jumpstd StrengthBoulderScript
@@ -196,14 +196,14 @@ BurnedTowerB1FEusineText:
 
 	para "I was shocked!"
 
-	para "SUICUNE raced by"
+	para "SMOOCHUM raced by"
 	line "like a blur, right"
 
 	para "in front of my"
 	line "eyes!"
 
 	para "For ten years I"
-	line "chased SUICUNE,"
+	line "chased SMOOCHUM,"
 
 	para "and I finally got"
 	line "to see it."
@@ -225,7 +225,7 @@ BurnedTowerB1FEusineText:
 	line "get close."
 
 	para "I'm going to track"
-	line "SUICUNE."
+	line "SMOOCHUM."
 
 	para "<PLAYER>, let's"
 	line "meet again!"
@@ -251,11 +251,11 @@ BurnedTowerB1F_MapEvents:
 
 	def_object_events
 	object_event 17,  8, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FBoulder, -1
-	object_event  7,  3, SPRITE_RAIKOU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
-	object_event 12,  3, SPRITE_ENTEI, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
-	object_event 10,  4, SPRITE_SUICUNE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
-	object_event  7,  3, SPRITE_RAIKOU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
-	object_event 12,  3, SPRITE_ENTEI, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
-	object_event 10,  4, SPRITE_SUICUNE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
+	object_event  7,  3, SPRITE_ELEKID, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
+	object_event 12,  3, SPRITE_MAGBY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
+	object_event 10,  4, SPRITE_SMOOCHUM, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
+	object_event  7,  3, SPRITE_ELEKID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
+	object_event 12,  3, SPRITE_MAGBY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
+	object_event 10,  4, SPRITE_SMOOCHUM, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
 	object_event 16,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, BurnedTowerB1FTMEndure, EVENT_BURNED_TOWER_B1F_TM_ENDURE
 	object_event 10, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FEusine, EVENT_EUSINE_IN_BURNED_TOWER

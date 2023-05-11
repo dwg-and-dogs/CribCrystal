@@ -400,7 +400,7 @@ IlexForestLassScript:
 	jumptextfaceplayer Text_IlexForestLass
 
 IlexForestRevive:
-	itemball REVIVE
+	itemball SILVERPOWDER
 
 IlexForestXAttack:
 	itemball X_ATTACK
@@ -463,7 +463,8 @@ IlexForestShrineScript:
 	pause 20
 	clearflag ENGINE_FOREST_IS_RESTLESS
 	special CelebiShrineEvent
-	loadwildmon CELEBI, 30
+	loadwildmon CHIKORITA, 30
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
 	startbattle
 	reloadmapafterbattle
 	pause 20

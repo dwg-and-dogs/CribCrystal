@@ -1,0 +1,5 @@
+$ cd /cygdrive/c/users/dwg11/cribxtal/
+cd gfx
+cd overworld
+
+#https://www.mankier.com/1/rgbgfx

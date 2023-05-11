@@ -13,7 +13,7 @@ VermilionGym_MapScripts:
 VermilionGymSurgeScript:
 	faceplayer
 	opentext
-	checkflag ENGINE_THUNDERBADGE
+	checkevent EVENT_BEAT_LTSURGE
 	iftrue .FightDone
 	writetext LtSurgeIntroText
 	waitbutton
@@ -23,22 +23,32 @@ VermilionGymSurgeScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_LTSURGE
-	setevent EVENT_BEAT_GENTLEMAN_GREGORY
-	setevent EVENT_BEAT_GUITARIST_VINCENT
-	setevent EVENT_BEAT_JUGGLER_HORTON
 	opentext
 	writetext ReceivedThunderBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_THUNDERBADGE
+.FightDone:
+	checkevent EVENT_GOT_TM_41_THUNDERPUNCH
+	iftrue .SpeechAfterTM
+	loadmem wLevelCap, 58
+	setevent EVENT_BEAT_GENTLEMAN_GREGORY
+	setevent EVENT_BEAT_GUITARIST_VINCENT
+	setevent EVENT_BEAT_JUGGLER_HORTON
 	writetext LtSurgeThunderBadgeText
+	promptbutton
+	verbosegiveitem TM_THUNDERPUNCH
+	iffalse .NoRoomForThunderpunch
+	setevent EVENT_GOT_TM_41_THUNDERPUNCH
+	writetext SurgeTMThunderpunchText
 	waitbutton
 	closetext
 	end
 
-.FightDone:
+.SpeechAfterTM:
 	writetext LtSurgeFightDoneText
 	waitbutton
+.NoRoomForThunderpunch:
 	closetext
 	end
 
@@ -79,6 +89,7 @@ VermilionGymGuideScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_LTSURGE
+	loadmem wLevelCap, 57
 	iftrue .VermilionGymGuideWinScript
 	writetext VermilionGymGuideText
 	waitbutton
@@ -136,6 +147,15 @@ LtSurgeWinLossText:
 ReceivedThunderBadgeText:
 	text "<PLAYER> received"
 	line "THUNDERBADGE."
+	done
+
+SurgeTMThunderpunchText:
+	text "TM41 contains"
+	line "THUNDERPUNCH."
+
+	para "I developed"
+	line "the technique"
+	cont "myself!"
 	done
 
 LtSurgeThunderBadgeText:
@@ -290,5 +310,5 @@ VermilionGym_MapEvents:
 	object_event  5,  2, SPRITE_SURGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VermilionGymSurgeScript, -1
 	object_event  8,  8, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerGentlemanGregory, -1
 	object_event  4,  7, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 3, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerGuitaristVincent, -1
-	object_event  0, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerJugglerHorton, -1
+	object_event  2, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerJugglerHorton, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, VermilionGymGuideScript, -1

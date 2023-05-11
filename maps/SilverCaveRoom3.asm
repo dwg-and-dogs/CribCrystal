@@ -21,6 +21,7 @@ Red:
 	special FadeOutMusic
 	opentext
 	writetext RedLeavesText
+	loadmem wLevelCap, 100
 	waitbutton
 	closetext
 	special FadeBlackQuickly

@@ -6,15 +6,32 @@
 	const ECRUTEAKCITY_FISHER
 	const ECRUTEAKCITY_YOUNGSTER
 	const ECRUTEAKCITY_GRAMPS3
+	const ECRUTEAKCITY_POKEFAN_M1
+	const ECRUTEAKCITY_POKEFAN_M2
+	const ECRUTEAKCITY_POKEFAN_M3
+	const ECRUTEAKCITY_POKEFAN_M4
 
 EcruteakCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, EcruteakCityFlypointCallback
+	callback MAPCALLBACK_OBJECTS, EcruteakCityPokefanM1Callback
 
 EcruteakCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_ECRUTEAK
+	endcallback
+
+EcruteakCityPokefanM1Callback:
+	checkflag ENGINE_FOGBADGE
+	iftrue .DoesEcruteakCityPokefanM1Disappear
+	endcallback
+
+.DoesEcruteakCityPokefanM1Disappear:
+	disappear ECRUTEAKCITY_POKEFAN_M1
+	disappear ECRUTEAKCITY_POKEFAN_M2
+	disappear ECRUTEAKCITY_POKEFAN_M3
+	disappear ECRUTEAKCITY_POKEFAN_M4
 	endcallback
 
 EcruteakCityGramps1Script:
@@ -64,6 +81,18 @@ EcruteakCityFisherScript:
 EcruteakCityYoungsterScript:
 	jumptextfaceplayer EcruteakCityYoungsterText
 
+EcruteakCityPokefanM1Script:
+	jumptextfaceplayer EcruteakCityPokefanM1Text
+	
+EcruteakCityPokefanM2Script:
+	jumptextfaceplayer EcruteakCityPokefanM2Text
+	
+EcruteakCityPokefanM3Script:
+	jumptextfaceplayer EcruteakCityPokefanM3Text
+	
+EcruteakCityPokefanM4Script:
+	jumptextfaceplayer EcruteakCityPokefanM4Text
+
 EcruteakCitySign:
 	jumptext EcruteakCitySignText
 
@@ -87,26 +116,6 @@ EcruteakCityMartSign:
 
 EcruteakCityHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_ECRUTEAK_CITY_HIDDEN_HYPER_POTION
-
-UnusedMissingDaughterText: ; unreferenced
-	text "Oh, no. Oh, no…"
-
-	para "My daughter is"
-	line "missing."
-
-	para "No… She couldn't"
-	line "have gone to the"
-	cont "BURNED TOWER."
-
-	para "I told her not to"
-	line "go near it…"
-
-	para "People seem to"
-	line "disappear there…"
-
-	para "Oh, what should I"
-	line "do…?"
-	done
 
 EcruteakCityGramps1Text:
 	text "ECRUTEAK used to"
@@ -256,6 +265,49 @@ BurnedTowerSignText:
 	line "as it is unsafe."
 	done
 
+EcruteakCityPokefanM1Text:
+	text "There is an"
+	line "outbreak of mad"
+	cont "MILTANK disease."
+
+	para "Come back"
+	line "later when it's"
+	cont "under control."
+	done
+	
+
+EcruteakCityPokefanM2Text:
+	text "There is an"
+	line "outbreak of mad"
+	cont "MILTANK disease."
+
+	para "Come back"
+	line "later when it's"
+	cont "under control."
+	done
+
+	
+EcruteakCityPokefanM3Text:
+	text "There was a big"
+	line "landslide at"
+	cont "Mt. Mortar."
+
+	para "It won't be safe"
+	line "to pass through"
+	cont "for a while."
+	done
+	
+
+EcruteakCityPokefanM4Text:
+	text "There was a big"
+	line "landslide at"
+	cont "Mt. Mortar."
+
+	para "It won't be safe"
+	line "to pass through"
+	cont "for a while."
+	done
+
 EcruteakCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -296,3 +348,7 @@ EcruteakCity_MapEvents:
 	object_event  9, 22, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCityFisherScript, -1
 	object_event 10, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakCityYoungsterScript, -1
 	object_event  3,  7, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps3Script, EVENT_ECRUTEAK_CITY_GRAMPS
+	object_event  1, 18, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, EcruteakCityPokefanM1Script, EVENT_ECRUTEAK_ROUTE38BLOCK1
+	object_event  1, 19, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, EcruteakCityPokefanM2Script, EVENT_ECRUTEAK_ROUTE38BLOCK2
+	object_event 34, 26, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, EcruteakCityPokefanM3Script, EVENT_ECRUTEAK_ROUTE42BLOCK1
+	object_event 34, 27, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, EcruteakCityPokefanM4Script, EVENT_ECRUTEAK_ROUTE42BLOCK2

@@ -26,12 +26,13 @@ Lugia:
 	faceplayer
 	opentext
 	writetext LugiaText
-	cry LUGIA
+	cry TOTODILE
 	pause 15
 	closetext
 	setevent EVENT_FOUGHT_LUGIA
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon LUGIA, 60
+	loadwildmon TOTODILE, 60
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
 	startbattle
 	disappear WHIRLISLANDLUGIACHAMBER_LUGIA
 	reloadmapafterbattle

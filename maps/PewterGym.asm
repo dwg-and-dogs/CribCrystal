@@ -28,13 +28,24 @@ PewterGymBrockScript:
 	waitsfx
 	setflag ENGINE_BOULDERBADGE
 	writetext BrockBoulderBadgeText
+.FightDone:
+	checkevent EVENT_GOT_TM_48_FIRE_PUNCH
+	iftrue .SpeechAfterTM
+	loadmem wLevelCap, 68
+	writetext BrockFightDoneText
+	promptbutton
+	verbosegiveitem TM_FIRE_PUNCH
+	iffalse .NoRoomForFirePunch
+	setevent EVENT_GOT_TM_48_FIRE_PUNCH
+	writetext BrockTMFirepunchText
 	waitbutton
 	closetext
 	end
 
-.FightDone:
+.SpeechAfterTM:
 	writetext BrockFightDoneText
 	waitbutton
+.NoRoomForFirePunch:
 	closetext
 	end
 
@@ -114,6 +125,14 @@ BrockWinLossText:
 ReceivedBoulderBadgeText:
 	text "<PLAYER> received"
 	line "BOULDERBADGE."
+	done
+
+BrockTMFirepunchText:
+	text "TM48 contains"
+	line "FIRE PUNCH."
+
+	para "It may burn"
+	line "the opponent!"
 	done
 
 BrockBoulderBadgeText:
@@ -221,5 +240,5 @@ PewterGym_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterGymBrockScript, -1
-	object_event  2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperJerry, -1
+	object_event  2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerCamperJerry, -1
 	object_event  6, 11, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, PewterGymGuideScript, -1

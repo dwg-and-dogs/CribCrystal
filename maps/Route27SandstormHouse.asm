@@ -14,13 +14,13 @@ SandstormHouseWoman:
 	special GetFirstPokemonHappiness
 	writetext SandstormHouseWomanText1
 	promptbutton
-	ifgreater 150 - 1, .Loyal
+	ifgreater 2 - 1, .Loyal
 	sjump .Disloyal
 
 .Loyal:
 	writetext SandstormHouseWomanLoyalText
 	promptbutton
-	verbosegiveitem TM_SANDSTORM
+	verbosegiveitem TM_THUNDER
 	iffalse .Done
 	setevent EVENT_GOT_TM37_SANDSTORM
 .AlreadyGotItem:
@@ -65,12 +65,12 @@ SandstormHouseWomanLoyalText:
 	done
 
 SandstormHouseSandstormDescription:
-	text "TM37 happens to be"
-	line "SANDSTORM."
+	text "TM25 happens to be"
+	line "THUNDER."
 
-	para "It's a move that"
-	line "inflicts damage on"
-	cont "both battlers."
+	para "It's a move with"
+	line "high power and"
+	cont "may paralyze."
 
 	para "It's for advanced"
 	line "trainers only."

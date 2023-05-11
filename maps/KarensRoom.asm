@@ -1,5 +1,5 @@
 	object_const_def
-	const KARENSROOM_KAREN
+	const KARENSROOM_LANCE
 
 KarensRoom_MapScripts:
 	def_scene_scripts
@@ -49,7 +49,7 @@ KarenScript_Battle:
 	waitbutton
 	closetext
 	winlosstext KarenScript_KarenBeatenText, 0
-	loadtrainer KAREN, KAREN1
+	loadtrainer CHAMPION, LANCE
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KAREN
@@ -79,52 +79,49 @@ KarensRoom_EnterMovement:
 	step_end
 
 KarenScript_KarenBeforeText:
-	text "I am KAREN of the"
-	line "ELITE FOUR."
+	text "You can call me"
+	line "LANCE the "
+	cont "dragon trainer."
 
-	para "You're <PLAYER>?"
-	line "How amusing."
+	para "You know that"
+	line "they are myth-"
+	cont "ical #MON?" 
 
-	para "I love dark-type"
-	line "#MON."
+	para "They are hard to"
+	line "catch and raise."
 
-	para "I find their wild,"
-	line "tough image to be"
+	para "But their power"
+	line "is superior."
 
-	para "so appealing. And"
-	line "they're so strong."
+	para "They're virtually"
+	line "indestructible."
 
-	para "Think you can take"
-	line "them? Just try to"
-	cont "entertain me."
+	para "Well, are you"
+	line "ready to lose?"
+
+	para "Your LEAGUE"
+	line "challenge ends"
+	cont "now, <PLAY_G>!"
 
 	para "Let's go."
 	done
 
 KarenScript_KarenBeatenText:
-	text "Well, aren't you"
-	line "good. I like that"
-	cont "in a trainer."
+	text "That's it! I"
+	line "hate to admit it."
+	
+	para "But you are a"
+	line "#MON master"
 	done
 
 KarenScript_KarenDefeatText:
-	text "Strong #MON."
-
-	para "Weak #MON."
-
-	para "That is only the"
-	line "selfish perception"
-	cont "of people."
-
-	para "Truly skilled"
-	line "trainers should"
-
-	para "try to win with"
-	line "their favorites."
-
-	para "I like your style."
-	line "You understand"
-	cont "what's important."
+	text "I still can't"
+	line "believe my dragons"
+	cont "lost to you."
+	
+	para "You are clearly"
+	line "a clever #MON"
+	cont "trainer."
 
 	para "Go on--the CHAM-"
 	line "PION is waiting."
@@ -144,4 +141,4 @@ KarensRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  7, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, KarenScript_Battle, -1
+	object_event  5,  7, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarenScript_Battle, -1

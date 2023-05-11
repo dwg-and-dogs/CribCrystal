@@ -157,7 +157,12 @@ EcruteakPokecenter1F_BillText2:
 	line "back to GOLDENROD"
 	cont "and see my folks."
 
-	para "Buh-bye!"
+	para "If you come over,"
+	line "I will give you a"
+	
+	para "MINT BERRY from"
+	line "my folks' garden."
+	cont "Buh-bye!"
 	done
 
 EcruteakPokecenter1FPokefanMText:

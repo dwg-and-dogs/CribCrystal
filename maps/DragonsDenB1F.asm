@@ -15,7 +15,11 @@ DragonsDenB1F_MapScripts:
 	scene_script DragonsDenB1FNoop2Scene, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, DragonsDenB1FCheckRivalCallback
+	callback MAPCALLBACK_NEWMAP, .UnsetClairScene
+
+.UnsetClairScene:
+	setmapscene DRAGONS_DEN_B1F, SCENE_DRAGONSDENB1F_NOOP
+	endcallback
 
 DragonsDenB1FNoop1Scene:
 	end
@@ -58,6 +62,7 @@ DragonsDenB1F_ClairScene:
 	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext Text_ReceivedTM24
+	loadmem wLevelCap, 48
 	playsound SFX_ITEM
 	waitsfx
 	itemnotify
@@ -178,7 +183,7 @@ DragonsDenB1FCalcium:
 	itemball CALCIUM
 
 DragonsDenB1FMaxElixer:
-	itemball MAX_ELIXER
+	itemball TM_HYPER_BEAM
 
 DragonsDenB1FHiddenRevive:
 	hiddenitem REVIVE, EVENT_DRAGONS_DEN_B1F_HIDDEN_REVIVE

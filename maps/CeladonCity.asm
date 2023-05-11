@@ -7,7 +7,7 @@
 	const CELADONCITY_YOUNGSTER1
 	const CELADONCITY_YOUNGSTER2
 	const CELADONCITY_TEACHER2
-	const CELADONCITY_LASS
+	const CELADONCITY_LASSZ
 
 CeladonCity_MapScripts:
 	def_scene_scripts
@@ -121,11 +121,11 @@ CeladonCityGramps1Text:
 	done
 
 CeladonCityGramps2Text:
-	text "Nihihi! This GYM"
-	line "is great! Only"
+	text "I'm required to"
+	line "tell everyone in"
 
-	para "girls are allowed"
-	line "here!"
+	para "the city that I"
+	line "just moved here."
 	done
 
 CeladonCityYoungster1Text:

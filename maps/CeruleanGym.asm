@@ -78,10 +78,26 @@ CeruleanGymMistyScript:
 	waitsfx
 	setflag ENGINE_CASCADEBADGE
 .FightDone:
+	checkevent EVENT_GOT_TM14_BLIZZARD
+	iftrue .SpeechAfterTM
+	loadmem wLevelCap, 66
 	writetext MistyFightDoneText
+	promptbutton
+	verbosegiveitem TM_BLIZZARD
+	iffalse .NoRoomForBlizzard
+	setevent EVENT_GOT_TM14_BLIZZARD
+	writetext MistyTMBlizzardText
 	waitbutton
 	closetext
 	end
+	
+.SpeechAfterTM:
+	writetext MistyFightDoneText
+	waitbutton
+.NoRoomForBlizzard:
+	closetext
+	end
+
 
 TrainerSwimmerfDiana:
 	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script
@@ -281,6 +297,21 @@ MistyFightDoneText:
 
 	para "I can battle some"
 	line "skilled trainers."
+	done
+
+MistyTMBlizzardText:
+	text "TM14 contains"
+	line "BLIZZARD."
+
+	para "It does high"
+	line "damage and"
+
+	para "may also"
+	line "freeze."
+
+	para "It is perfect"
+	line "for water and"
+	cont "ice types."
 	done
 
 SwimmerfDianaSeenText:

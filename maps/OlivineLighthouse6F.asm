@@ -65,8 +65,8 @@ OlivineLighthouseJasmine:
 	writetext JasmineThankYouText
 	waitbutton
 	closetext
-	setevent EVENT_JASMINE_RETURNED_TO_GYM
-	clearevent EVENT_OLIVINE_GYM_JASMINE
+;	setevent EVENT_JASMINE_RETURNED_TO_GYM
+;	clearevent EVENT_OLIVINE_GYM_JASMINE
 	readvar VAR_FACING
 	ifequal DOWN, .FacingDown
 	ifequal RIGHT, .FacingRight
@@ -126,7 +126,7 @@ OlivineLighthouseAmphy:
 	end
 
 OlivineLighthouse6FSuperPotion:
-	itemball SUPER_POTION
+	itemball TM_THUNDERPUNCH
 
 OlivineLighthouseJasmineLeavesUpMovement:
 	slow_step UP

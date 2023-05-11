@@ -27,7 +27,7 @@ CeladonEusine:
 	opentext
 	writetext CeladonEusineText1
 	promptbutton
-	setval SUICUNE
+	setval SMOOCHUM
 	special MonCheck
 	iffalse .NoSuicune
 	special BeastsCheck
@@ -128,8 +128,8 @@ NoBeastsText:
 	para "Have you caught"
 	line "the legendary"
 
-	para "#MON RAIKOU and"
-	line "ENTEI?"
+	para "#MON ELEKID and"
+	line "MAGBY?"
 
 	para "<……><……><……>"
 

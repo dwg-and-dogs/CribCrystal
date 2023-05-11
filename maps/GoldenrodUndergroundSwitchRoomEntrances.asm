@@ -705,8 +705,8 @@ UndergroundRivalAfterText:
 	text "…I don't under-"
 	line "stand…"
 
-	para "Is what that LANCE"
-	line "guy said true?"
+	para "Is what that KAREN"
+	line "lady said true?"
 
 	para "That I don't treat"
 	line "#MON properly?"
@@ -745,7 +745,7 @@ UndergroundRivalLossText:
 	line "ROCKET history."
 
 	para "And I'm going to"
-	line "grind that LANCE"
+	line "grind that KAREN"
 	cont "under my heels."
 	done
 

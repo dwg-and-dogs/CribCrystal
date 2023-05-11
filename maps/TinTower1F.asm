@@ -9,6 +9,7 @@
 	const TINTOWER1F_SAGE4
 	const TINTOWER1F_SAGE5
 	const TINTOWER1F_SAGE6
+	const TINTOWER1F_POKE_BALL
 
 TinTower1F_MapScripts:
 	def_scene_scripts
@@ -114,9 +115,9 @@ TinTower1FSuicuneBattleScript:
 	pause 10
 	applymovement PLAYER, TinTower1FPlayerBacksUpMovement
 	applymovement TINTOWER1F_SUICUNE, TinTower1FSuicuneApproachesMovement
-	cry SUICUNE
+	cry SMOOCHUM
 	pause 20
-	loadwildmon SUICUNE, 40
+	loadwildmon SMOOCHUM, 40
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SUICUNE
 	startbattle
 	dontrestartmapmusic
@@ -317,26 +318,23 @@ TinTower1FEusineSuicuneText:
 	para "That was truly"
 	line "inspiring to see."
 
-	para "SUICUNE was tough,"
+	para "SMOOCHUM was tough,"
 	line "but you were even"
 
 	para "more incredible,"
 	line "<PLAYER>."
 
-	para "I heard SUICUNE's"
+	para "I saw SMOOCHUM's"
 	line "mystic power"
 
 	para "summons a rainbow-"
 	line "colored #MON."
 
-	para "Maybe, just maybe,"
-	line "what went on today"
+	para "I think that you"
+	line "may have even"
 
-	para "will cause that"
-	line "#MON to appear."
-
-	para "I'm going to study"
-	line "the legends more."
+	para "lifted a CURSE"
+	line "on this tower."
 
 	para "Thanks for showing"
 	line "me that fantastic"
@@ -390,8 +388,8 @@ TinTower1FSage2Text:
 
 	para "They are…"
 
-	para "SUICUNE, ENTEI and"
-	line "RAIKOU."
+	para "SMOOCHUM, MAGBY"
+	line "and ELEKID."
 
 	para "That is what they"
 	line "say."
@@ -502,7 +500,7 @@ TinTower1FSage5Text3:
 
 TinTower1FSage6Text2:
 	text "Of the legendary"
-	line "#MON, SUICUNE"
+	line "#MON, SMOOCHUM"
 
 	para "is said to be the"
 	line "closest to HO-OH."
@@ -517,8 +515,11 @@ TinTower1FSage6Text2:
 	line "must be sharing a"
 
 	para "cooperative bond"
-	line "with SUICUNE."
+	line "with SMOOCHUM."
 	done
+
+TinTower1FCurse:
+	itemball TM_CURSE
 
 TinTower1F_MapEvents:
 	db 0, 0 ; filler
@@ -533,9 +534,9 @@ TinTower1F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_SUICUNE
-	object_event  7,  9, SPRITE_RAIKOU, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_RAIKOU
-	object_event 12,  9, SPRITE_ENTEI, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_ENTEI
+	object_event  9,  9, SPRITE_SMOOCHUM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_SUICUNE
+	object_event  7,  9, SPRITE_ELEKID, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_RAIKOU
+	object_event 12,  9, SPRITE_MAGBY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_ENTEI
 	object_event  8,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TinTower1FEusine, EVENT_TIN_TOWER_1F_EUSINE
 	object_event  5,  9, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage1Script, EVENT_TIN_TOWER_1F_WISE_TRIO_1
 	object_event 11, 11, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage2Script, EVENT_TIN_TOWER_1F_WISE_TRIO_1
@@ -543,3 +544,4 @@ TinTower1F_MapEvents:
 	object_event  4,  2, SPRITE_SAGE, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage4Script, EVENT_TIN_TOWER_1F_WISE_TRIO_2
 	object_event  9,  1, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage5Script, EVENT_TIN_TOWER_1F_WISE_TRIO_2
 	object_event 14,  2, SPRITE_SAGE, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage6Script, EVENT_TIN_TOWER_1F_WISE_TRIO_2
+	object_event 10,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower1FCurse, EVENT_TIN_TOWER_1F_CURSE

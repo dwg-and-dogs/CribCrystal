@@ -1,5 +1,5 @@
 	object_const_def
-	const LANCESROOM_LANCE
+	const LANCESROOM_KAREN
 	const LANCESROOM_MARY
 	const LANCESROOM_OAK
 
@@ -50,14 +50,15 @@ Script_ApproachLanceFromRight:
 	special FadeOutMusic
 	applymovement PLAYER, MovementData_ApproachLanceFromRight
 LancesRoomLanceScript:
-	turnobject LANCESROOM_LANCE, LEFT
+	turnobject LANCESROOM_KAREN, LEFT
 	opentext
 	writetext LanceBattleIntroText
 	waitbutton
 	closetext
 	winlosstext LanceBattleWinText, 0
-	setlasttalked LANCESROOM_LANCE
-	loadtrainer CHAMPION, LANCE
+	loadmem wLevelCap, 56
+	setlasttalked LANCESROOM_KAREN
+	loadtrainer KAREN, KAREN1
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -73,8 +74,8 @@ LancesRoomLanceScript:
 	setevent EVENT_LANCES_ROOM_ENTRANCE_CLOSED
 	musicfadeout MUSIC_BEAUTY_ENCOUNTER, 16
 	pause 30
-	showemote EMOTE_SHOCK, LANCESROOM_LANCE, 15
-	turnobject LANCESROOM_LANCE, DOWN
+	showemote EMOTE_SHOCK, LANCESROOM_KAREN, 15
+	turnobject LANCESROOM_KAREN, DOWN
 	pause 10
 	turnobject PLAYER, DOWN
 	appear LANCESROOM_MARY
@@ -89,7 +90,7 @@ LancesRoomLanceScript:
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryYieldsToOak
 	stopfollow
 	turnobject LANCESROOM_OAK, UP
-	turnobject LANCESROOM_LANCE, LEFT
+	turnobject LANCESROOM_KAREN, LEFT
 	opentext
 	writetext LancesRoomOakCongratulationsText
 	waitbutton
@@ -100,19 +101,19 @@ LancesRoomLanceScript:
 	writetext LancesRoomMaryInterviewText
 	waitbutton
 	closetext
-	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway
+	applymovement LANCESROOM_KAREN, LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway
 	turnobject PLAYER, UP
 	opentext
 	writetext LancesRoomNoisyText
 	waitbutton
 	closetext
-	follow LANCESROOM_LANCE, PLAYER
+	follow LANCESROOM_KAREN, PLAYER
 	turnobject LANCESROOM_MARY, UP
 	turnobject LANCESROOM_OAK, UP
-	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LanceLeadsPlayerToHallOfFame
+	applymovement LANCESROOM_KAREN, LancesRoomMovementData_LanceLeadsPlayerToHallOfFame
 	stopfollow
 	playsound SFX_EXIT_BUILDING
-	disappear LANCESROOM_LANCE
+	disappear LANCESROOM_KAREN
 	applymovement PLAYER, LancesRoomMovementData_PlayerExits
 	playsound SFX_EXIT_BUILDING
 	disappear PLAYER
@@ -205,7 +206,7 @@ LancesRoomMovementData_MaryRunsBackAndForth:
 	step_end
 
 LanceBattleIntroText:
-	text "LANCE: I've been"
+	text "KAREN: I've been"
 	line "waiting for you."
 
 	para "<PLAY_G>!"
@@ -231,9 +232,8 @@ LanceBattleIntroText:
 	para "the #MON LEAGUE"
 	line "CHAMPION…"
 
-	para "I, LANCE the drag-"
-	line "on master, accept"
-	cont "your challenge!"
+	para "I, KAREN, accept"
+	line "your challenge!"
 	done
 
 LanceBattleWinText:
@@ -254,11 +254,23 @@ LanceBattleWinText:
 	done
 
 LanceBattleAfterText:
-	text "…Whew."
+	text "Strong #MON."
 
-	para "You have become"
-	line "truly powerful,"
-	cont "<PLAY_G>."
+	para "Weak #MON."
+
+	para "That is only the"
+	line "selfish perception"
+	cont "of people."
+
+	para "Truly skilled"
+	line "trainers should"
+
+	para "try to win with"
+	line "their favorites."
+
+	para "I like your style."
+	line "You understand"
+	cont "what's important."
 
 	para "Your #MON have"
 	line "responded to your"
@@ -321,7 +333,7 @@ LancesRoomMaryInterviewText:
 	done
 
 LancesRoomNoisyText:
-	text "LANCE: This is"
+	text "KAREN: This is"
 	line "getting to be a"
 	cont "bit too noisy…"
 
@@ -351,6 +363,6 @@ LancesRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  3, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LancesRoomLanceScript, -1
+	object_event  5,  3, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LancesRoomLanceScript, -1
 	object_event  4,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY
 	object_event  4,  7, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY

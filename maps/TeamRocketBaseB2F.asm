@@ -1,8 +1,8 @@
 	object_const_def
 	const TEAMROCKETBASEB2F_ROCKET1
 	const TEAMROCKETBASEB2F_ROCKET_GIRL
-	const TEAMROCKETBASEB2F_LANCE
-	const TEAMROCKETBASEB2F_DRAGON
+	const TEAMROCKETBASEB2F_KAREN
+	const TEAMROCKETBASEB2F_GHOST
 	const TEAMROCKETBASEB2F_ELECTRODE1
 	const TEAMROCKETBASEB2F_ELECTRODE2
 	const TEAMROCKETBASEB2F_ELECTRODE3
@@ -46,14 +46,14 @@ TeamRocketBaseB2FTransmitterDoorCallback:
 	endcallback
 
 RocketBaseBossFLeft:
-	moveobject TEAMROCKETBASEB2F_LANCE, 9, 13
+	moveobject TEAMROCKETBASEB2F_KAREN, 9, 13
 	sjump RocketBaseBossFScript
 
 RocketBaseBossFRight:
 	moveobject TEAMROCKETBASEB2F_ROCKET_GIRL, 21, 16
 	moveobject TEAMROCKETBASEB2F_ROCKET1, 21, 16
-	moveobject TEAMROCKETBASEB2F_DRAGON, 10, 13
-	moveobject TEAMROCKETBASEB2F_LANCE, 10, 13
+	moveobject TEAMROCKETBASEB2F_GHOST, 10, 13
+	moveobject TEAMROCKETBASEB2F_KAREN, 10, 13
 RocketBaseBossFScript:
 	appear TEAMROCKETBASEB2F_ROCKET_GIRL
 	appear TEAMROCKETBASEB2F_ROCKET1
@@ -72,15 +72,15 @@ RocketBaseBossFScript:
 	writetext RocketBaseBossFThrashText
 	waitbutton
 	closetext
-	cry DRAGONITE
+	cry GENGAR
 	turnobject TEAMROCKETBASEB2F_ROCKET_GIRL, LEFT
 	turnobject PLAYER, LEFT
-	appear TEAMROCKETBASEB2F_DRAGON
-	applymovement TEAMROCKETBASEB2F_DRAGON, RocketBaseDragoniteAttacksMovement
+	appear TEAMROCKETBASEB2F_GHOST
+	applymovement TEAMROCKETBASEB2F_GHOST, RocketBaseDragoniteAttacksMovement
 	applymovement TEAMROCKETBASEB2F_ROCKET_GIRL, RocketBaseBossFHitMovement
 	applymovement TEAMROCKETBASEB2F_ROCKET1, RocketBaseGruntProtectsBossFMovement
-	appear TEAMROCKETBASEB2F_LANCE
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceApproachesBossFMovement
+	appear TEAMROCKETBASEB2F_KAREN
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceApproachesBossFMovement
 	opentext
 	writetext RocketBaseLanceShareFunText
 	waitbutton
@@ -97,7 +97,7 @@ RocketBaseBossFScript:
 	setlasttalked TEAMROCKETBASEB2F_ROCKET_GIRL
 	loadtrainer EXECUTIVEF, EXECUTIVEF_2
 	startbattle
-	disappear TEAMROCKETBASEB2F_DRAGON
+	disappear TEAMROCKETBASEB2F_GHOST
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_GRUNT_WITH_EXECUTIVE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_LANCE
@@ -118,27 +118,27 @@ RocketBaseBossFScript:
 	special FadeInQuickly
 	setscene SCENE_TEAMROCKETBASEB2F_ELECTRODES
 	clearevent EVENT_TEAM_ROCKET_BASE_B2F_LANCE
-	turnobject TEAMROCKETBASEB2F_LANCE, DOWN
+	turnobject TEAMROCKETBASEB2F_KAREN, DOWN
 	opentext
 	writetext RocketBaseLancePostBattleText
 	waitbutton
 	closetext
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceChecksPlayerMovement
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceChecksPlayerMovement
 	turnobject PLAYER, UP
 	opentext
 	writetext RocketBaseLancePowerOffText
 	waitbutton
 	closetext
-	follow TEAMROCKETBASEB2F_LANCE, PLAYER
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceApproachesMachineMovement
+	follow TEAMROCKETBASEB2F_KAREN, PLAYER
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceApproachesMachineMovement
 	stopfollow
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLancePacesMovement
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLancePacesMovement
 	opentext
 	writetext RockerBaseLanceElectrodeFaintText
 	waitbutton
 	closetext
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceApproachesElectrodesMovement
-	disappear TEAMROCKETBASEB2F_LANCE
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceApproachesElectrodesMovement
+	disappear TEAMROCKETBASEB2F_KAREN
 
 RocketBaseCantLeaveScript:
 	applymovement PLAYER, RocketBasePlayerCantLeaveElectrodesMovement
@@ -158,7 +158,7 @@ LanceHealsScript1:
 
 LanceHealsScript2:
 	turnobject PLAYER, RIGHT
-	turnobject TEAMROCKETBASEB2F_LANCE, LEFT
+	turnobject TEAMROCKETBASEB2F_KAREN, LEFT
 LanceHealsCommon:
 	opentext
 	writetext LanceHealsText1
@@ -177,13 +177,13 @@ LanceHealsCommon:
 	setevent EVENT_LANCE_HEALED_YOU_IN_TEAM_ROCKET_BASE
 	readvar VAR_FACING
 	ifequal RIGHT, .FacingRight
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceLeavesAfterHealMovement
-	disappear TEAMROCKETBASEB2F_LANCE
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceLeavesAfterHealMovement
+	disappear TEAMROCKETBASEB2F_KAREN
 	end
 
 .FacingRight:
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceLeavesAfterHealRightMovement
-	disappear TEAMROCKETBASEB2F_LANCE
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceLeavesAfterHealRightMovement
+	disappear TEAMROCKETBASEB2F_KAREN
 	end
 
 TrainerGruntM17:
@@ -221,7 +221,7 @@ TrainerGruntM19:
 
 RocketElectrode1:
 	cry ELECTRODE
-	loadwildmon ELECTRODE, 23
+	loadwildmon VOLTORB, 23
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE1
@@ -239,7 +239,7 @@ RocketElectrode1:
 
 RocketElectrode2:
 	cry ELECTRODE
-	loadwildmon ELECTRODE, 23
+	loadwildmon VOLTORB, 23
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE2
@@ -257,7 +257,7 @@ RocketElectrode2:
 
 RocketElectrode3:
 	cry ELECTRODE
-	loadwildmon ELECTRODE, 23
+	loadwildmon VOLTORB, 23
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE3
@@ -278,9 +278,9 @@ TeamRocketBaseB2FReloadMap:
 	end
 
 RocketBaseElectrodeScript:
-	moveobject TEAMROCKETBASEB2F_LANCE, 18, 6
-	appear TEAMROCKETBASEB2F_LANCE
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceLeavesElectrodesMovement
+	moveobject TEAMROCKETBASEB2F_KAREN, 18, 6
+	appear TEAMROCKETBASEB2F_KAREN
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceLeavesElectrodesMovement
 	turnobject PLAYER, RIGHT
 	opentext
 	writetext RocketBaseLanceElectrodeDoneText
@@ -290,18 +290,18 @@ RocketBaseElectrodeScript:
 	writetext RocketBaseLanceWhirlpoolText
 	waitbutton
 	closetext
-	turnobject TEAMROCKETBASEB2F_LANCE, DOWN
+	turnobject TEAMROCKETBASEB2F_KAREN, DOWN
 	opentext
 	writetext RocketBaseLanceMonMasterText
 	waitbutton
 	closetext
 	turnobject PLAYER, DOWN
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceLeavesBaseMovement
-	disappear TEAMROCKETBASEB2F_LANCE
+	applymovement TEAMROCKETBASEB2F_KAREN, RocketBaseLanceLeavesBaseMovement
+	disappear TEAMROCKETBASEB2F_KAREN
 	setevent EVENT_CLEARED_ROCKET_HIDEOUT
 	clearflag ENGINE_ROCKET_SIGNAL_ON_CH20
 	setevent EVENT_ROUTE_43_GATE_ROCKETS
-	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_GYM
+;	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_GYM
 	setscene SCENE_TEAMROCKETBASEB2F_NOOP
 	clearevent EVENT_LAKE_OF_RAGE_CIVILIANS
 	setevent EVENT_TURNED_OFF_SECURITY_CAMERAS
@@ -647,7 +647,7 @@ RocketBaseBossRetreatText:
 	done
 
 RocketBaseLancePostBattleText:
-	text "LANCE: That did"
+	text "KAREN: That did"
 	line "it. We defeated"
 
 	para "all the ROCKETS"
@@ -705,12 +705,12 @@ RockerBaseLanceElectrodeFaintText:
 	done
 
 RocketBaseLancesSideText:
-	text "LANCE: Leave this"
+	text "KAREN: Leave this"
 	line "side to me."
 	done
 
 RocketBaseLanceElectrodeDoneText:
-	text "LANCE: That odd"
+	text "KAREN: That odd"
 	line "signal has finally"
 	cont "stopped."
 
@@ -784,7 +784,7 @@ RocketBaseLanceMonMasterText:
 	done
 
 LanceHealsText1:
-	text "LANCE: Are you all"
+	text "KAREN: Are you all"
 	line "right?"
 
 	para "Your #MON are"
@@ -796,7 +796,7 @@ LanceHealsText1:
 	done
 
 LanceHealsText2:
-	text "LANCE: <PLAY_G>,"
+	text "KAREN: <PLAY_G>,"
 	line "let's give it our"
 	cont "best for #MON."
 	done
@@ -955,8 +955,8 @@ TeamRocketBaseB2F_MapEvents:
 	def_object_events
 	object_event 20, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_GRUNT_WITH_EXECUTIVE
 	object_event 20, 16, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE
-	object_event  5, 13, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_LANCE
-	object_event  9, 13, SPRITE_DRAGON, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_DRAGONITE
+	object_event  5, 13, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_LANCE
+	object_event  9, 13, SPRITE_GHOST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_DRAGONITE
 	object_event  7,  5, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode1, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
 	object_event  7,  7, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode2, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
 	object_event  7,  9, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode3, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3

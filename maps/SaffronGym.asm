@@ -33,17 +33,26 @@ SaffronGymSabrinaScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MARSHBADGE
-	writetext SabrinaMarshBadgeText
+.FightDone:
+	checkevent EVENT_GOT_TM_33_ICE_PUNCH
+	iftrue .SpeechAfterTM
+	loadmem wLevelCap, 60
+	writetext SabrinaFightDoneText
+	promptbutton
+	verbosegiveitem TM_ICE_PUNCH
+	iffalse .NoRoomForIcePunch
+	setevent EVENT_GOT_TM_33_ICE_PUNCH
+	writetext SabrinaTMIcePunchText
 	waitbutton
 	closetext
 	end
-
-.FightDone:
+.SpeechAfterTM:
 	writetext SabrinaFightDoneText
 	waitbutton
+.NoRoomForIcePunch:
 	closetext
 	end
-
+	
 TrainerMediumRebecca:
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script
 
@@ -263,6 +272,17 @@ PsychicJaredAfterBattleText:
 	line "just destroyed by"
 	cont "SABRINA."
 	done
+	
+SabrinaTMIcePunchText:
+	text "TM33 contains"
+	line "ICE PUNCH."
+
+	para "It can be"
+	line "learned by"
+
+	para "some PSYCHIC"
+	line "types."
+	done
 
 SaffronGymGuideText:
 	text "Yo, CHAMP in"
@@ -332,8 +352,8 @@ SaffronGym_MapEvents:
 
 	def_object_events
 	object_event  9,  8, SPRITE_SABRINA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronGymSabrinaScript, -1
-	object_event 17, 16, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerMediumRebecca, -1
-	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin, -1
-	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris, -1
-	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared, -1
+	object_event 17, 16, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerMediumRebecca, -1
+	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin, -1
+	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris, -1
+	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared, -1
 	object_event  9, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronGymGuideScript, -1

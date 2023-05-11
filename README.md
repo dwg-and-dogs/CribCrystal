@@ -1,6 +1,6 @@
 # Pokémon Crystal [![Build Status][ci-badge]][ci]
 
-This is a disassembly of Pokémon Crystal.
+This is a modified disassembly of Pokémon Crystal: Crib Crystal v1.
 
 It builds the following ROMs:
 
@@ -50,3 +50,4 @@ Other disassembly projects:
 [irc]: https://web.libera.chat/?#pret
 [ci]: https://github.com/pret/pokecrystal/actions
 [ci-badge]: https://github.com/pret/pokecrystal/actions/workflows/main.yml/badge.svg
+"# CribCrystal_v1" 
