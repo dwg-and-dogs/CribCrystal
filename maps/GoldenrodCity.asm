@@ -37,8 +37,13 @@ GoldenrodCityMoveTutorCallback:
 	checkitem COIN_CASE
 	iffalse .MoveTutorDisappear
 	readvar VAR_WEEKDAY
+	ifequal MONDAY, .MoveTutorAppear
+	ifequal TUESDAY, .MoveTutorAppear
 	ifequal WEDNESDAY, .MoveTutorAppear
+	ifequal THURSDAY, .MoveTutorAppear
+	ifequal FRIDAY, .MoveTutorAppear
 	ifequal SATURDAY, .MoveTutorAppear
+	ifequal SUNDAY, .MoveTutorAppear
 .MoveTutorDisappear:
 	disappear GOLDENRODCITY_MOVETUTOR
 	endcallback
@@ -128,20 +133,21 @@ MoveTutorScript:
 	writetext GoldenrodCityMoveTutorFarewellKidText
 	waitbutton
 	closetext
-	readvar VAR_FACING
-	ifequal LEFT, .WalkAroundPlayer
-	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorEnterGameCornerMovement
-	sjump .GoInside
-
-.WalkAroundPlayer:
-	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorWalkAroundPlayerThenEnterGameCornerMovement
-.GoInside:
-	playsound SFX_ENTER_DOOR
-	disappear GOLDENRODCITY_MOVETUTOR
-	clearevent EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
-	setflag ENGINE_DAILY_MOVE_TUTOR
-	waitsfx
 	end
+;	readvar VAR_FACING
+;	ifequal LEFT, .WalkAroundPlayer
+;	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorEnterGameCornerMovement
+;	sjump .GoInside
+
+;WalkAroundPlayer:
+;	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorWalkAroundPlayerThenEnterGameCornerMovement
+;.GoInside:
+;	playsound SFX_ENTER_DOOR
+;	disappear GOLDENRODCITY_MOVETUTOR
+;	clearevent EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
+;	setflag ENGINE_DAILY_MOVE_TUTOR
+;	waitsfx
+;	end
 
 .Incompatible:
 	writetext GoldenrodCityMoveTutorBButText

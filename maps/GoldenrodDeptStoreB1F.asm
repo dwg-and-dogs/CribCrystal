@@ -62,7 +62,7 @@ GoldenrodDeptStoreB1FMachopScript:
 	end
 
 GoldenrodDeptStoreB1FEther:
-	itemball ETHER
+	itemball COIN_CASE
 
 GoldenrodDeptStoreB1FAmuletCoin:
 	itemball AMULET_COIN
