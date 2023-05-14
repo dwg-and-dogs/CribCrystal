@@ -537,8 +537,8 @@ GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText:
 	done
 
 GoldenrodCityMoveTutorFarewellKidText:
-	text "Wahahah!"
-	line "Farewell, kid!"
+	text "Wahah! Until"
+	line "next time, kid!"
 	done
 
 GoldenrodCityMoveTutorBButText:
