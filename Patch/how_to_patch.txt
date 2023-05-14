@@ -1,27 +1,23 @@
-Need to: 
-Remake Documentation in PDF forms
-Make folder of sprites
+1. Your zip folder should have this text file, several PDFs of the documentation, LunarIPS.exe, and two IPS files.
 
-0. Your zip folder should have this text file, several PDFs of the documentation, LunarIPS.exe, and two IPS files.
+2. Acquire a clean version of Crystal v1.1 or Crystal (Rev A) .gbc
 
-1. Acquire a clean version of Crystal v1.1 or Crystal (Rev A) .gbc
+3. Make a copy of your Crystal .gbc file
 
-2. Make a copy of your Crystal .gbc file
+4. Open Lunar IPS.exe
 
-3. Open Lunar IPS.exe
+5. Click "Apply IPS Patch"
 
-4. Click "Apply IPS Patch"
+6. If you have a clean copy of Crystal 1.1 .gbc:
+	6.1 Select "cribcrystal_v1_for_v1p1.ips"
+	6.2 Select the copy of your clean Crystal 1.1
+	6.3 Message "The file was successfully patched!" should appear. 
 
-4. If you have a clean copy of Crystal 1.1 .gbc:
-	4.1 Select "cribcrystal_v1_11.ips"
-	4.2 Select the copy of your clean Crystal 1.1
-	4.3 Message "The file was successfully patched!" should appear. 
+7. If you have a clean copy of Crystal Rev A .gbc:
+	7.1 Select "cribcrystal_v1_RevA.ips"
+	7.2 Select the copy of your clean Crystal Rev A
+	7.3 Message "The file was successfully patched!" should appear. 
 
-5. If you have a clean copy of Crystal Rev A .gbc:
-	5.2 Select "cribcrystal_v1_11.ips"
-	5.3 Select the copy of your clean Crystal 1.1
-	5.4 Message "The file was successfully patched!" should appear. 
+8. (Optional) Rename the patched copy "CribCrystal_v1.gbc"
 
-6. (Optional) Rename the patched copy "CribCrystal_v1.gbc"
-
-6. Open CribCrystal_v1 with your favorite emulator. Patch was tested on mGBA. 
+9. Open CribCrystal_v1 with your favorite emulator. Patch was tested on mGBA. 
