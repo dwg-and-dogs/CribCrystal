@@ -328,7 +328,7 @@ EusineAfterText:
 
 	para "I'm going to keep"
 	line "searching for"
-	cont "SUICUNE."
+	cont "SMOOCHUM."
 
 	para "I'm sure we'll see"
 	line "each other again."

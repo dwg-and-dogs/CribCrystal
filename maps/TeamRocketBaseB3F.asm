@@ -336,9 +336,9 @@ LanceGetPasswordText:
 	done
 
 TeamRocketBaseB3FRocketText:
-	text "Urrggh… The guy"
-	line "in the cape is"
-	cont "incredibly tough…"
+	text "Urrgh… The lady"
+	line "with the ghost"
+	cont "is so tough…"
 	done
 
 RocketBaseRivalText:
@@ -351,10 +351,10 @@ RocketBaseRivalText:
 	line "ROCKET?"
 
 	para "…Tell me, who was"
-	line "the guy in the"
+	line "the woman in the"
 
-	para "cape who used"
-	line "dragon #MON?"
+	para "dress who used"
+	line "dark #MON?"
 
 	para "My #MON were no"
 	line "match at all."

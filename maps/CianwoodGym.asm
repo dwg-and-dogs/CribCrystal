@@ -42,7 +42,6 @@ CianwoodGymChuckScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHUCK
-	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_GYM
 	opentext
 	writetext GetStormBadgeText
 	playsound SFX_GET_BADGE

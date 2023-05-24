@@ -5,6 +5,7 @@ DEF MAHOGANYTOWN_RAGECANDYBAR_PRICE EQU 300
 	const MAHOGANYTOWN_GRAMPS
 	const MAHOGANYTOWN_FISHER
 	const MAHOGANYTOWN_LASS
+	const MAHOGANYTOWN_COOLTRAINER_M
 
 MahoganyTown_MapScripts:
 	def_scene_scripts
@@ -13,6 +14,7 @@ MahoganyTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, MahoganyTownFlypointCallback
+	callback MAPCALLBACK_OBJECTS, MahoganyTownCooltrainerMCallback
 
 MahoganyTownNoop1Scene:
 	end
@@ -22,6 +24,15 @@ MahoganyTownNoop2Scene:
 
 MahoganyTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_MAHOGANY
+	endcallback
+
+MahoganyTownCooltrainerMCallback:
+	checkflag ENGINE_STORMBADGE
+	iftrue .DoesMahoganyTownCooltrainerMDisappear
+	endcallback
+
+.DoesMahoganyTownCooltrainerMDisappear:
+	disappear MAHOGANYTOWN_COOLTRAINER_M
 	endcallback
 
 MahoganyTownTryARageCandyBarScript:
@@ -226,6 +237,17 @@ MahoganyTownLassText:
 	line "else has."
 	done
 
+MahoganyTownCooltrainerMScript:
+	jumptextfaceplayer MahoganyTownCooltrainerMText
+
+MahoganyTownCooltrainerMText:
+	text "Hey, I hear"
+	line "that CIANWOOD is"
+	
+	para "a good place to"
+	line "train."
+	done
+
 MahoganyTownSignText:
 	text "MAHOGANY TOWN"
 
@@ -265,7 +287,7 @@ MahoganyTown_MapEvents:
 	def_bg_events
 	bg_event  1,  5, BGEVENT_READ, MahoganyTownSign
 	bg_event  9,  7, BGEVENT_READ, MahoganyTownRagecandybarSign
-	bg_event  3, 13, BGEVENT_READ, MahoganyGymSign
+	bg_event  8, 14, BGEVENT_READ, MahoganyGymSign
 	bg_event 16, 13, BGEVENT_READ, MahoganyTownPokecenterSign
 
 	def_object_events
@@ -273,3 +295,5 @@ MahoganyTown_MapEvents:
 	object_event  6,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownGrampsScript, -1
 	object_event  6, 14, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MahoganyTownFisherScript, EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_GYM
 	object_event 12,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownLassScript, EVENT_MAHOGANY_MART_OWNERS
+	object_event  8, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyTownCooltrainerMScript, EVENT_MAHOGANY_GYM_BLOCK
+	
