@@ -1,4 +1,10 @@
 Crib Crystal
+
+v1.1 update
+*Fixes bug catching contest levels
+*Fixes some dialogue
+*Fixes linearity issue with Rocket Hideout and Mahogany Gym
+
 Crib crystal is a difficulty hack of Pokemon Crystal inspired by Emerald Trashlocke, Garbage Green, Baby Blue [https://old.reddit.com/r/PokemonROMhacks/comments/111qzk4/pok%C3%A9mon_baby_blue_the_gen_1_littlelocke/], and Useless Yellow [https://www.pokecommunity.com/showthread.php?t=453311] developed by me, dwg6m9. Max Repels, Full Restores, Rare Candies are at each mart, and a Pocket PC and EXP share are available very early on. The game pushes evolution levels back and removes most final forms. You will not earn Stat EXP from battling, but vitamins will work.
 Pokemon movesets are revised so that a wide variety of Pokemon can be used without being overpowered – for instance, Grimer is available in Union Cave, but does not have access to Sludge until after Bugsy; conversely, some movesets are buffed, like Supersonic going to Confuse Ray for Ledyba. Many baby Pokemon replace their adult forms, including Bonsly, Mime Jr, Wynaut, Mantyke, Happiny, and Munchlax (sorry Azurill), and the legendary beasts are replaced with Smoochum, Magby, and Elekid. Nearly every pokemon can hard counter at least one boss pokemon, and almost no pokemon can totally sweep a gym leader.
 Many TMs have their availability reduced - no game corner TMs or purchasable punches. Many TMs require beating a back-to-back battle; for instance, Rest and Sleep Talk require back-to-backs on Route 45.
@@ -37,4 +43,5 @@ Credits:
 ·       Wynaut sprite [https://www.deviantart.com/ericgl1996/art/SpaceWorld-97-Wobbuffet-and-GSC-Wynaut-863832924]
 ·       Sharkguy on spritersresource.com  for Bonsly, Mime Jr, Happiny, Mantyke sprites (some back sprites are adapted Gen 4 assets)
 ·       Ferropexola, events and sprites debug
+·       DerekAllenDean, events and sprites debug (playthrough at: https://youtu.be/kHgb2ZZNgtE)
 ·       The smoochum overworld sprite, Karen overworld moving sprites, Ghost overworld sprites, and the back sprites for the baby pokemon Bonsly, MimeJr, Happiny, Mantyke, are from me. Feel free to use with credit to my username. 

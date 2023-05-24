@@ -9,15 +9,15 @@
 5. Click "Apply IPS Patch"
 
 6. If you have a clean copy of Crystal 1.1 .gbc:
-	6.1 Select "cribcrystal_v1_for_v1p1.ips"
+	6.1 Select "cribcrystal_v1pt1_patchv1t1.ips"
 	6.2 Select the copy of your clean Crystal 1.1
 	6.3 Message "The file was successfully patched!" should appear. 
 
 7. If you have a clean copy of Crystal Rev A .gbc:
-	7.1 Select "cribcrystal_v1_RevA.ips"
+	7.1 Select "cribcrystal_v1pt1_patchRevA.ips"
 	7.2 Select the copy of your clean Crystal Rev A
 	7.3 Message "The file was successfully patched!" should appear. 
 
-8. (Optional) Rename the patched copy "CribCrystal_v1.gbc"
+8. (Optional) Rename the patched copy "CribCrystal_v1pt1.gbc"
 
-9. Open CribCrystal_v1 with your favorite emulator. Patch was tested on mGBA. 
+9. Open CribCrystal_v1pt1 with your favorite emulator. Patch was tested on mGBA. 
